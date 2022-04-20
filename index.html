@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+		<link rel="stylesheet" href="css/style.css">
+		<title>JavaScript - лр № 3</title>
+	</head>
+	<body>
+		<div class="wrapper">
+      <script>
+
+        let days = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'нд'];
+
+				let month = ['січня', 'лютого', 'березня', 'квітня',
+				'травня', 'червня', 'липня', 'серпня', 'вересня',
+				'жовтня', 'листопада', 'грудня'];
+
+				let fullDays = ['неділя', 'понеділок', 'вівторок',
+				'середа', 'четвер', "п'ятниця", 'субота'];
+
+			  var now = new Date();
+			  now.setDate(1);
+			  var dayOfWeek = now.getDay();
+			  if(dayOfWeek == 0){dayOfWeek = 7;}
+
+				var currentMonth = now.getMonth();
+				var daysInMonth = 28;
+
+				while(currentMonth == now.getMonth()){
+					now.setDate(++daysInMonth);
+				}
+				--daysInMonth;
+
+				now = new Date();
+				var today = now.getDate();
+
+				now = new Date();
+				var year = now.getFullYear();
+
+				now = new Date();
+				var mainDayOfWeek = now.getDay();
+
+				document.write(`<div class="calendar_wr">`);
+				document.write(`<div class="m_a_y">${fullDays[mainDayOfWeek]}, ${today} ${month[currentMonth]} ${year} р.</div>`);
+        document.write(`<table class="cal"><tbody>`);
+
+				document.write(`<tr>`);
+
+				for (var i = 0; i < 7; i++){
+					if(i == 5 || i == 6){document.write(`<td class="st_snd">` + days[i] + `</td>`);}else {
+						document.write(`<td>` + days[i] + `</td>`);
+					}
+				}
+
+				document.write(`</tr>`);
+
+				for (var i = 2 - dayOfWeek; i <= 43 - dayOfWeek; i++){
+
+					if((i - 1 + dayOfWeek) % 7 == 1){document.write(`<tr>`);}
+
+					if((i - 1 + dayOfWeek) % 7 == 0 || (i - 1 + dayOfWeek) % 7 == 6){
+
+						if(i < 1){document.write(`<td class="st_snd"><span class="no_this">` + (i + daysInMonth + 1) + `</span></td>`);}
+						else if(i > daysInMonth){document.write(`<td class="st_snd"><span class="no_this">` + (i - daysInMonth) + `</span></td>`);}
+						else if(i == today){document.write(`<td class="today st_snd"><strong title="сьогодні">` + i + `</strong></td>`);}
+						else {document.write(`<td class="st_snd">` + i + `</td>`);}
+
+					}else {
+
+						if(i < 1){document.write(`<td><span class="no_this">` + (i + daysInMonth + 1) + `</span></td>`);}
+						else if(i > daysInMonth){document.write(`<td><span class="no_this">` + (i - daysInMonth) + `</span></td>`);}
+						else if(i == today){document.write(`<td class="today"><strong title="сьогодні">` + i + `</strong></td>`);}
+						else {document.write(`<td>` + i + `</td>`);}
+
+					}
+
+					if((i - 1 + dayOfWeek) % 7 == 0){
+						document.write(`</tr>`);
+					}
+
+				}
+
+				document.write(`</tbody></table>`);
+				document.write(`</div>`);
+
+      </script>
+		</div>
+		<script src="js/script.js"></script>
+	</body>
+</html>
