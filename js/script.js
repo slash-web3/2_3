@@ -95,7 +95,15 @@ let fullDays = ['неділя', 'понеділок', 'вівторок',
 
    document.open();
 
+   document.write(`<!DOCTYPE html>`);
+   document.write(`<html>`);
+   document.write(`<head>`);
+   document.write(`<meta charset="UTF-8">`);
+   document.write(`<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">`);
+   document.write(`<title>JavaScript - лр № 3</title>`);
    document.write(`<link rel="stylesheet" href="css/style.css">`);
+   document.write(`</head>`);
+   document.write(`<body>`);
    document.write(`<div class="wrapper">`);
    document.write(`<div class="calendar_wr">`);
    document.write(`<div class="only_today">${fullDays[dayNow]}, ${today} ${month[monthNow]} ${yearNow} р.</div>`);
@@ -120,14 +128,20 @@ let fullDays = ['неділя', 'понеділок', 'вівторок',
 
        if(i < 1){document.write(`<td class="st_snd"><span class="no_this">` + (daysInPrevMonth + i) + `</span></td>`);}
        else if(i > daysInMonth){document.write(`<td class="st_snd"><span class="no_this">` + (i - daysInMonth) + `</span></td>`);}
-       else if(i == today){document.write(`<td class="today st_snd"><strong title="сьогодні">` + i + `</strong></td>`);}
+       else if(monthNow == currentMonth && yearNow == year){if(i == today){document.write(`<td class="today"><strong title="сьогодні">` + i + `</strong></td>`);}
+       else {
+         document.write(`<td class="st_snd">` + i + `</td>`);
+       }}
        else {document.write(`<td class="st_snd">` + i + `</td>`);}
 
      }else {
 
        if(i < 1){document.write(`<td><span class="no_this">` + (daysInPrevMonth + i) + `</span></td>`);}
        else if(i > daysInMonth){document.write(`<td><span class="no_this">` + (i - daysInMonth) + `</span></td>`);}
-       else if(i == today){document.write(`<td class="today"><strong title="сьогодні">` + i + `</strong></td>`);}
+       else if(monthNow == currentMonth && yearNow == year){if(i == today){document.write(`<td class="today"><strong title="сьогодні">` + i + `</strong></td>`);}
+       else {
+         document.write(`<td>` + i + `</td>`);
+       }}
        else {document.write(`<td>` + i + `</td>`);}
 
      }
@@ -146,6 +160,8 @@ let fullDays = ['неділя', 'понеділок', 'вівторок',
    document.write(`</div>`);
    document.write(`</div>`);
    document.write(`</div>`);
+   document.write(`</body>`);
+   document.write(`</html>`);
 
    document.close();
 

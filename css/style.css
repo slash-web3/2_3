@@ -1,5 +1,5 @@
 .wrapper{
-  min-height: 929px;
+  /*min-height: 929px;*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,6 +63,11 @@
   border: 1px solid black;
 }
 
+.today{
+  background-color: #113CFC;
+  border: 1px solid black;
+}
+
 .st_snd{
   background-color: #346B9B;
 }
@@ -100,6 +105,7 @@
 .search > button{
   min-height: 22px;
   border: none;
+  color: #113CFC;
 }
 
 .only_today{
