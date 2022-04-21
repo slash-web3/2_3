@@ -1,5 +1,5 @@
 .wrapper{
-  /*min-height: 929px;*/
+  min-height: 929px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,7 +33,7 @@
   color: white;
   text-align: center;
   font-size: 11.5pt;
-  padding: 15px 15px;
+  padding: 15px;
   font-family: sans-serif;
 }
 
@@ -65,4 +65,51 @@
 
 .st_snd{
   background-color: #346B9B;
+}
+
+.hori{
+  margin: 0;
+  height: 1px;
+  border: none;
+  background-color: #5584AC;
+  opacity: 0.7;
+}
+
+.search{
+  min-height: 80px;
+  background-color: #5584AC;
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.search > input{
+  max-width: 60px;
+  min-height: 20px;
+  border:none;
+  text-align: center;
+}
+
+.search > input:focus{
+  outline: none;
+}
+
+.search > button{
+  min-height: 22px;
+  border: none;
+}
+
+.only_today{
+  background-color: #5584AC;
+  color: #42C2FF;
+  text-align: center;
+  font-family: sans-serif;
+  min-height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 26px;
 }
