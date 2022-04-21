@@ -33,7 +33,7 @@ document.write(`</tr>`);
 }
 document.write(`</table>`);*/
 
-//-------------------------------------------------Task 3----------------------------------------
+//-------------------------------------------------Task 3/4----------------------------------------
 
 let days = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'нд'];
 
@@ -60,7 +60,9 @@ let fullDays = ['неділя', 'понеділок', 'вівторок',
   var yearNow;
   var monthNow;
   var dayNow;
-  let clickAble;
+  var btn_search;
+  var std_search;
+  var std_number = 0;
 
   function cal_create(y, m){
 
@@ -126,6 +128,8 @@ let fullDays = ['неділя', 'понеділок', 'вівторок',
 
      if((i - 1 + dayOfWeek) % 7 == 0 || (i - 1 + dayOfWeek) % 7 == 6){
 
+       if((i - 1 + dayOfWeek) % 7 == 6 && i > 0 && i <= daysInMonth){std_number++;}
+
        if(i < 1){document.write(`<td class="st_snd"><span class="no_this">` + (daysInPrevMonth + i) + `</span></td>`);}
        else if(i > daysInMonth){document.write(`<td class="st_snd"><span class="no_this">` + (i - daysInMonth) + `</span></td>`);}
        else if(monthNow == currentMonth && yearNow == year){if(i == today){document.write(`<td class="today"><strong title="сьогодні">` + i + `</strong></td>`);}
@@ -159,17 +163,25 @@ let fullDays = ['неділя', 'понеділок', 'вівторок',
    name="month" placeholder="місяць"><button class="search_btn" type="button">Знайти</button>`);
    document.write(`</div>`);
    document.write(`</div>`);
+   document.write(`<div class="std_counter">`);
+   document.querySelector(`.std_counter`).innerHTML = `
+     <button class="btn_count" type="button">Кількість субот</button>
+     <div class="res_icon"></div>
+   `;
+   document.write(`</div>`);
    document.write(`</div>`);
    document.write(`</body>`);
    document.write(`</html>`);
 
    document.close();
 
-   clickAble = document.querySelector(`.search_btn`);
-   clickAble.addEventListener("click", function(e){
+   btn_search = document.querySelector(`.search_btn`);
+   btn_search.addEventListener("click", function(e){
 
    let passYear = document.getElementById('year').value;
    let passMonth = document.getElementById('month').value;
+
+   std_number = 0;
 
    document.body.innerHTML = ``;
 
@@ -179,6 +191,12 @@ let fullDays = ['неділя', 'понеділок', 'вівторок',
     cal_create(passYear, passMonth);
   }
 
+  });
+
+  std_search = document.querySelector(`.btn_count`);
+
+  std_search.addEventListener("click", function(e){
+    document.querySelector(`.res_icon`).innerHTML = `${std_number}`;
   });
 
   }

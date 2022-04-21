@@ -1,7 +1,7 @@
 .wrapper{
-  /*min-height: 929px;*/
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -118,4 +118,29 @@
   justify-content: flex-start;
   align-items: center;
   padding-left: 26px;
+}
+
+.std_counter{
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.btn_count{
+  min-height: 30px;
+  font-family: sans-serif;
+  border: none;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.26);
+}
+
+.res_icon{
+  min-height: 50px;
+  background-color: #5584AC;
+  color: white;
+  font-family: sans-serif;
+  font-size: 20pt;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
